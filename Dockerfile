@@ -1,15 +1,16 @@
 FROM n8nio/n8n
 
-# Optional: Set basic auth (you should!)
+# Optional: set authentication (change these!)
 ENV N8N_BASIC_AUTH_ACTIVE=true
 ENV N8N_BASIC_AUTH_USER=admin
 ENV N8N_BASIC_AUTH_PASSWORD=admin123
 
-# Set timezone to avoid warnings
+# Set timezone
 ENV TZ=Etc/UTC
 
-# Expose default port
+# Expose the default n8n port
 EXPOSE 5678
 
-# Run n8n (same as your docker run CMD)
-CMD ["n8n"]
+# Use the full path to n8n binary
+CMD ["sh", "-c", "/usr/local/bin/n8n"]
+
